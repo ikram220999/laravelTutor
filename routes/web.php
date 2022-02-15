@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
@@ -34,7 +35,21 @@ Route::get('posts/{post:slug}', function(Post $post){ //Post::where('slug', $pos
 
 	return view('post', [
 
-		'post' => $post
+		'post' => $post,
+	]);
+
+	//ddd($path);
+
+});
+
+
+Route::get('categories/{category:slug}', function(Category $category){ //Post::where('slug', $post)->firstOrFail();
+
+	//FInd a category by its slug
+
+	return view('category', [
+
+		'category' => $category->posts
 	]);
 
 	//ddd($path);
