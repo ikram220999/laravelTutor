@@ -5,9 +5,9 @@
 
 @section('content')
 
+ 
     @foreach($posts as $post)
-    
-    <article class="{{ $loop->even ? 'foobar' : '' }}">
+    <article class="">
         <h1>
 
             <a href="/posts/{{ $post->slug }}">
@@ -22,5 +22,6 @@
 
     </article>
     @endforeach
+
 
 @endsection
