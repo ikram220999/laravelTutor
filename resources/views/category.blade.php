@@ -9,6 +9,7 @@
        <h1>{{ $category->name }}</h1>
     
         <div>
+            
             {!! $category->slug; !!}
         </div>
 

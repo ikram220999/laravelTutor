@@ -18,7 +18,8 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 Route::get('/', function () {
 
-	return view('welcome', ['posts' => Post::all()]);
+
+	return view('welcome', ['posts' => Post::with('category')->get()]);
 
     //return view('welcome', [
 
