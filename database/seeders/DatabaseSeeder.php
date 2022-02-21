@@ -21,9 +21,11 @@ class DatabaseSeeder extends Seeder
         Category::truncate();
         Post::truncate();
 
-         $user = User::factory()->create();
+        Post::factory()->create();
 
-        $personal = Category::create([
+  //       $user = User::factory()->create();
+
+        /* $personal = Category::create([
 
             'name' => 'Personal',
             'slug' => 'personal'
@@ -63,7 +65,7 @@ class DatabaseSeeder extends Seeder
             'excerpt' => 'Lorem Ipsum is simply dummy text of the printing',
             'body' => 'Generate Lorem Ipsum placeholder text for use in your graphic, print and web layouts, and discover plugins for your favorite writing, design and blogging tools. Explore the origins, history and meanin'
 
-         ]);
+         ]); */
 
 
     }

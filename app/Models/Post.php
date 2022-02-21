@@ -12,6 +12,8 @@ class Post extends Model
     protected $guarded = [];
     //protected $fillable = ['title', 'excerpt','body'];
 
+    protected $with = ['category', 'author'];
+
     public function category()
     {
         // hasOne, hasMany, belongsTo, belongsToMany
@@ -20,9 +22,9 @@ class Post extends Model
     }
 
 
-    public function user()
+    public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 

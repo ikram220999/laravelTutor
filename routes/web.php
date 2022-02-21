@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +20,7 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 Route::get('/', function () {
 
 
-	return view('welcome', ['posts' => Post::with('category')->get()]);
+	return view('welcome', ['posts' => Post::latest()->with(['category', 'author'])->get()]);
 
     //return view('welcome', [
 
@@ -36,7 +37,7 @@ Route::get('posts/{post:slug}', function(Post $post){ //Post::where('slug', $pos
 
 	return view('post', [
 
-		'post' => $post,
+		'post' => $post
 	]);
 
 	//ddd($path);
@@ -48,9 +49,25 @@ Route::get('categories/{category:slug}', function(Category $category){ //Post::w
 
 	//FInd a category by its slug
 
-	return view('category', [
+	return view('welcome', [
 
-		'category' => $category->posts
+		'posts' => $category->posts
+	]);
+
+	//ddd($path);
+
+});
+
+
+Route::get('authors/{author:username}', function(User $author){ 
+
+	//ddd($author);
+
+	//FInd a category by its slug
+
+	return view('welcome', [
+
+		'posts' => $author->post
 	]);
 
 	//ddd($path);

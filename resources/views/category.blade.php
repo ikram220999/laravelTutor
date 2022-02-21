@@ -6,7 +6,7 @@
     
     <article>
 
-       <h1>{{ $category->name }}</h1>
+       <h1>{{ $category->name; }}</h1>
     
         <div>
             
@@ -15,7 +15,7 @@
 
     </article>
   
-
+<br />
     <a href="">Go back</a>
 
 @endsection
